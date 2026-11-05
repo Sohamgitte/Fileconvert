@@ -6,19 +6,22 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: mobile
 
 steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-- uses: actions/setup-node@v4
+- name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
-- run: npm install
+- name: Install dependencies
+        working-directory: mobile
+        run: npm install
 
-- run: npx eas-cli@latest build --platform android --profile preview --non-interactive
+- name: Build APK
+        working-directory: mobile
+        run: npx eas-cli@latest build --platform android --profile preview --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
