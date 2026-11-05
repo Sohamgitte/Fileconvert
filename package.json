@@ -1,0 +1,1 @@
+{"name":"fileconvert","private":true,"version":"0.1.0","workspaces":["api","mobile"],"scripts":{"dev":"npm run dev --workspace api","build":"npm run build --workspace api","typecheck":"npm run typecheck --workspace api"},"engines":{"node":">=20"}}
